@@ -1,0 +1,23 @@
+<launch>
+
+<arg name="delay" default="0.5"/>
+
+<include file="$(find ros_imu_bno055)/launch/imu.launch"/>
+
+<node pkg="rover_21_5_control" type="pitch_serial.py" name="serial" output="screen"/>
+<node pkg ="twist_mux" type ="twist_mux" name="twist_mux">
+		<rosparam command="load" file="$(find rover_22_drive_system)/config/twist_mux.yaml"/>
+		<remap from="cmd_vel_out" to="drive_system/twist"/>
+	</node>
+<node pkg="rover_22_drive_system" type="e_stop.py" name="e_stop" output="screen"/>
+
+<node pkg="rosserial_python" type= "serial_node.py" name= "ACM0" args="/dev/ttyACM0"/>
+<node pkg="rosserial_python" type= "serial_node.py" name= "ACM1" args="/dev/ttyACM1"/> 
+<node pkg="rosserial_python" type= "serial_node.py" name= "USB2" args="/dev/ttyACM2" />
+
+<node pkg="rover_21_5_control" type="led_control.py" name="led" output="screen">
+	<param name="/mydelay" value="$(arg delay)"/>
+</node>
+
+</launch>
+

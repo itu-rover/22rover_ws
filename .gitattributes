@@ -1,0 +1,12 @@
+approach filter=lfs diff=lfs merge=lfs -text
+detect_aruco filter=lfs diff=lfs merge=lfs -text
+dmu_ros filter=lfs diff=lfs merge=lfs -text
+LIO-SAM filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
+ros_imu_bno055 filter=lfs diff=lfs merge=lfs -text
+rover_21_5_control filter=lfs diff=lfs merge=lfs -text
+traverse filter=lfs diff=lfs merge=lfs -text
+velodyne-master filter=lfs diff=lfs merge=lfs -text
+cagdas filter=lfs diff=lfs merge=lfs -text
+robot_navigation filter=lfs diff=lfs merge=lfs -text
+rover_21_localization filter=lfs diff=lfs merge=lfs -text
